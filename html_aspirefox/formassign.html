@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+.h1{
+    color: red;
+    text-align: center;
+}
+.hey{
+    text-align: center;
+}
+body{
+    background-color: greenyellow;
+}
+.wow{
+    margin: auto;
+    display: block;
+   
+    text-align: center;
+}
+#submit{
+    color: white;
+    background-color: orange;
+    width: 200px;
+    height: 30px;
+}
+    
+</style>
+
+
+
+
+</head>
+<body>
+    
+<h1 class="h1">Personal Details</h1>
+<div class="wow">
+
+<form action="" method="get">
+
+<label for="name">Name:</label>
+<input type="text" id="name" required><br><br>
+
+<label for="password">Password:</label>
+<input type="password" id="password" required> <br><br>
+
+<label for="email"> E-mail id:</label>
+<input type="email" id="email" required> <br><br>
+
+<label for="gender">Gender:</label>
+
+<input type="radio" id="gender" name="choose" required>
+<label for="male">Male</label>
+
+<input type="radio" id="gender" name="choose" required>
+<label for="female">Female</label><br><br>
+
+<label for="contact">Contact#:</label>
+<input type="text" id="contact" required>
+
+
+<h2 class="h1"> Edcational Qualifications</h2>
+
+<label for="degree">Degree: </label>
+<select>
+    <option>BTECH</option>
+    <option>BCA</option>
+    <option>MCA</option>
+    <option>IT</option>
+</select><br><br><br>
+
+<label for="Engineering">Engineering </label>
+<select>
+    <option>CSE</option>
+    <option>EEE</option>
+    <option>CS</option>
+    <option>ME</option>
+</select><br><br><br>
+
+<label for="hobbies">Hobies: </label>
+
+<input type="checkbox" id="hobbies" required>
+<label for="chess">Playing chess</label>
+
+<input type="checkbox" id="hobbies" required>
+<label for="books">Reading Books</label>
+<br><br>
+
+<h2 class="h1">Address</h2>
+<textarea rows = "5" cols = "60">
+</textarea><br> <br>
+
+<label for="resume">Attach resume: </label>
+<input type="file" id="resume" required ><br><br><br>
+
+<input id="submit" type="submit"  value="Submit with get" >
+
+
+</form>
+</body>
+</html>

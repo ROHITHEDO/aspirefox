@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" onclick="savedata()" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+    <h1>JavaScript Local Storage</h1>
+    Enter Data to Store in Local Storage:
+    <input type="text" id="take_input"><br>
+    <button type="button" id="save_value">Save in Local Storage</button>
+    <br>
+    <label>Local Storage Value:<span id="localstorage_value"></span></label>
+    <br>
+    <button type="button" id="read_localstorage">Read Local Storage</button>
+    <br>
+    <button type="button" id="delete_data">Delete Data</button>
+
+</body>
+<script>
+
+    var take_input=document.getElementById("take_input")
+    var save_value=document.getElementById("save_value")
+    var localstorage_value=document.getElementById("localstorage_value")
+    var read_localstorage=document.getElementById("read_localstorage")
+    var delete_data=document.getElementById("delete_data")
+
+    // save value is a button 
+    save_value.onclick=function(){
+        localStorage.setItem("name",take_input.value);
+    }
+    read_localstorage.onclick=function()
+    {
+        localstorage_value.textContent=localStorage.getItem("name");
+    }
+    // get from there,and put inside read_localstorage variable since its inside 
+
+    delete_data.onclick=function(){
+        localStorage.removeItem("name");
+    }
+
+
+
+
+    function savedata() {
+
+
+        let woo =
+        {
+            email: document.getElementById("exampleInputEmail1").value,
+            password: document.getElementById("exampleInputPassword1").value
+        };
+
+        // id is the key as it is the unique one
+        localStorage.setItem('ss', JSON.stringify(woo));
+        // woo is the value and woo is the entire object
+
+        console.log(JSON.stringify(woo));
+
+        JSON.parse(localStorage.getItem("ss"));
+
+    }
+
+</script>
+
+</html>

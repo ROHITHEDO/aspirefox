@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Assignment3</title>
+
+    <link rel="stylesheet" href="./assign3.css">
+
+
+  </head>
+
+
+<body>
+  <input type="text" placeholder="Search for names.." title="Type in a name" class="col-2" id="searchbar" onkeyup="mySearch()">
+    
+
+
+    <table id="emptable">
+        
+    </table>
+    <!-- <button type="button" onclick="openmodal()" id="addTask">Add</button> -->
+    <!-- Button trigger modal -->
+<button type="button" id="addbtn" class="btn btn-primary form-control" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+<!-- form body... -->
+<form class="row g-3 needs-validation" id="modalform" validate>
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltip01" class="form-label">IMg URL</label>
+      <input type="text" class="form-control" id="imgval" value="" required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <label for="validationTooltip01" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fnameval" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+        </div>
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltip02" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lnameval" value="" required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label for="validationTooltip02" class="form-label">Email</label>
+        <input type="email" class="form-control" id="emailval" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <label for="validationTooltip02" class="form-label">Contact</label>
+        <input type="number" class="form-control" id="contactval" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <label for="validationTooltip02" class="form-label">Age</label>
+        <input type="number" class="form-control" id="ageval" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <label for="validationTooltip02" class="form-label">D.O.B</label>
+        <input type="date" class="form-control" id="dobval" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <label for="validationTooltip02" class="form-label">Salary</label>
+        <input type="number" class="form-control" id="salval" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <label for="validationTooltip02" class="form-label">Address</label>
+        <input type="text" class="form-control" id="addressval" value="" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+      </div>
+ 
+  
+      <div class="modal-footer">
+      <div class="col-12">
+      <button class="btn btn-primary" type="submit" id="onsubmit">Save Changes</button>
+      
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- delete modal -->
+
+  <div id="myModal" class="modal fade" >
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">				
+          <h4 class="modal-title w-100">Are you sure?</h4>	
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete these records? This process cannot be undone.</p>
+        </div>
+        <div class="modal-footer justify-content-center" id="movebothbtns">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="deletemodal" data-bs-dismiss="modal">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Edit modal section -->
+
+<form class="row g-3 needs-validation" id="modalf" required>
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" validate>
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <div id="editField"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="editbtn">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+  <!-- ------------------ -->
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <script src="./assign3.js"></script>
+</body>
+</html>
